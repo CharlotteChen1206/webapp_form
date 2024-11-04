@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypta Investment</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="images/logo_green.png" alt="Green Logo" height="202" width="180">
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <a href="#">Self-Directed Investing</a>
+            <a href="#">Account types</a>
+            <a href="#">Pricing</a>
+            <a href="#">Learning</a>
+            <a href="#">About us</a>
+        </nav>
+        <a href="#" class="CTA">Sign up now</a>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+
+    <main>
+        <form action="final_submission.html" method="post" id="form">
+            <fieldset>
+                <legend>Investment Profile</legend>
+
+                <div>
+                    <label for="income_level">Income Level (annual)</label>
+                    <select id="income" required>
+                        <option value="">Select Income Level</option>
+                        <option value="under_25000">Under $25,000</option>
+                        <option value="25000_50000">$25,000 - $50,000</option>
+                        <option value="50000_75000">$50,000 - $75,000</option>
+                        <option value="75000_100000">$75,000 - $100,000</option>
+                        <option value="100000_150000">$100,000 - $150,000</option>
+                        <option value="150000_200000">$150,000 - $200,000</option>
+                        <option value="200000_300000">$200,000 - $300,000</option>
+                        <option value="300000_up">Over $300,000</option>
+                    </select>
+                </div>
+
+
+
+                <div>
+                    <label for="experience">Investment Experience (years)</label>
+                    <input id="experience" type="range" min="0" max="30" value="0" required>
+                    <output for="experience" id="years">0</output>
+                </div>
+
+
+
+                <div>
+                    <label for="risk_tolerance">Risk Tolerance</label>
+                    <select id="risk" required>
+                        <option value="">Select Tolerance Level</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label for="goals">Investment Goals</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="goals">
+                            <span>Saving for retirement</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="goals">
+                            <span>Building wealth</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="goals">
+                            <span>Achieving specific financial milestones</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="goals">
+                            <span>Other</span>
+                        </label>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Bank Account Information</legend>
+
+
+                <div>
+                    <label for="banks">Link to Your Bank</label>
+                    <div class="radio_button">
+                        <label>
+                            <input type="radio" name="banks" required>
+                            <span>RBC</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="banks">
+                            <span>TD</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="banks">
+                            <span>Scotiabank</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="banks">
+                            <span>BMO</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="banks">
+                            <span>CIBC</span>
+                        </label>
+                    </div>
+                </div>
+
+
+                <div>
+                    <label for="account_number">Account Number</label>
+                    <input type="text" required pattern="\d{7,12}">
+                </div>
+
+
+
+                <div>
+                    <label for="account_type">Account Type</label>
+                    <div class="radio_button">
+                        <label>
+                            <input type="radio" name="type" required>
+                            <span>Chequing</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="type">
+                            <span>Savings</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="holder's_name">Account Holder's Name</label>
+                    <input type="text" required pattern="^[A-Za-z0-9À-ÖØ-öø-ÿ'.,\- ]+$" pattern="\w{3,30}">
+                </div>
+
+            </fieldset>
+
+            <div id="agreement">
+                <input type="checkbox" required>
+                <label for="agreement">By providing your personal information, you consent to its collection, use, and
+                    disclosure for the purposes of completing this application and receiving information about Crypta's
+                    products and services. For more information, please refer to our <a href="Policy.html">Privacy
+                        Policy</a>.</label>
+            </div>
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </main>
+
+    <script>
+        experience.addEventListener("input", (event) => {
+            let yearsOf = experience.value;
+            if (yearsOf > 29) {yearsOf = yearsOf + "+"};
+            years.innerHTML = yearsOf;
+        });
+
+        document.getElementById("form").addEventListener("submit", function(event) {
+        let checkboxes = document.querySelectorAll('input[name="goals"]:checked');
+        if (checkboxes.length === 0) {
+            alert("Please select at least one investment goal.");
+            event.preventDefault();
+        }
+    })
+    </script>
+</body>
+
+</html>
