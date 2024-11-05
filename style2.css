@@ -137,6 +137,11 @@ input[type="text"], input[type="range"], select {
     border-radius: 0.5em;
 }
 
+.radio_button label:hover {
+    color: #33845B;
+    border: 2px solid #33845B;
+}
+
 #agreement {
     flex-direction: row;
 }
